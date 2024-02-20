@@ -28,7 +28,7 @@ function BankAccount(accountNumber, name, type, balance) {
   };
 
   BankAccount.prototype.IsActive = function() {
-    return this.active;
+    return this.balance > 0;
   };
 
 let account1 = new BankAccount(2224859, 'junny', 'Savings', 600);
@@ -48,9 +48,18 @@ console.log(account1.IsActive());
 console.log(account2.IsActive());
 
 
-function getTotalBalance(...accounts) {
+function getTotalBalance(accounts) {
 
-    return accounts.reduce((total, acc) => {
+    let totalBalance = 0;
+
+    for (let account of accounts){
+
+        if (accunt.IsActive()){
+            totalBalance += account.balance
+        }
+    }
+    
+    return totalBalance
       if (acc.IActive()) {
         return total + acc.balance;
       }
